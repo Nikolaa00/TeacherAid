@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TeacherAid — demo build
 
-## Getting Started
+The live opener from a TeacherAid class, as a web app the audience opens by QR.
+Built for Startup Weekend Bitola, 11–13 September 2026.
 
-First, run the development server:
+- `/host` — projector screen: QR, joined counter, live vote bars, reveal with reasons,
+  mini leaderboard, class summary. Keys: **Space** next · **N** next question ·
+  **R** reset · **S** simulation (fake students, no network) · **F** fullscreen.
+  Query: `?sim=1` start in simulation, `?reset=1` reset on load, `?motion=0` no entrance
+  animations, `?key=` host key (default `bitola`, or `HOST_KEY`).
+- `/j/BITOLA` — the phone: auto nickname → Join → vote → one-line reason → result → rank.
+- `/print` — A4 QR sheet.
+
+Content (questions, class, topic, app name) lives in `content/opener.json`.
+
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Without Upstash credentials the session lives in the dev server's memory — enough for
+rehearsal. In production set `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`
+(or the `KV_REST_API_*` pair the Vercel marketplace injects).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js 16 (App Router) · Tailwind 4 · Upstash Redis · GSAP for the reveal · polling, not
+sockets, on purpose. Design context in `.impeccable.md`.
