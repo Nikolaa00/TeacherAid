@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Every class starts with a question.",
     start_url: `/j/${content.code}`,
     display: "standalone",
-    background_color: "#f8f5ef",
-    theme_color: "#f2b544",
-    icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }],
+    background_color: "#f7f2e1",
+    theme_color: "#ba3e3e",
+    icons: [{ src: "/logo.png", sizes: "any", type: "image/png", purpose: "any" }],
   };
 }

@@ -11,18 +11,18 @@ export function PrintSheet({ code }: { code: string }) {
   return (
     <main className="min-h-dvh flex flex-col items-center justify-center gap-10 p-12 text-center print:gap-8">
       <Mark name={content.app} className="text-[2rem]" />
-      <h1 className="font-display font-semibold text-[3rem] leading-[1] tracking-tight max-w-[14ch]">
+      <h1 className="font-display font-semibold text-brand-red text-[3rem] leading-[1] tracking-tight max-w-[14ch]">
         Scan to join today&rsquo;s class.
       </h1>
       {url ? <QR value={url} size={520} /> : <div style={{ width: 520, height: 520 }} />}
-      <p className="text-[1.75rem] text-ink-2 break-all">{url.replace(/^https?:\/\//, "")}</p>
-      <p className="text-ink-2 text-xl">
+      <p className="font-normal text-[1.75rem] text-brand-black break-all">{url.replace(/^https?:\/\//, "")}</p>
+      <p className="font-display font-medium text-brand-green text-xl">
         {content.subject} · {content.className} · {content.school}
       </p>
       <button
         type="button"
         onClick={() => window.print()}
-        className="print:hidden mt-4 rounded-md bg-ink text-paper px-6 py-3 text-lg font-semibold"
+        className="print:hidden mt-4 rounded-md bg-brand-red text-brand-cream px-6 py-3 text-lg font-display font-semibold"
       >
         Print A4
       </button>

@@ -37,14 +37,14 @@ export function VoteBars({ options, counts, revealed, correct, size = "board" }:
             }
           >
             <span
-              className={`font-display font-bold leading-none ${big ? "text-[2.25rem]" : board ? "text-[1.75rem]" : "text-lg"} ${
-                isHit ? (board ? "text-amber-2" : "text-amber") : board ? "text-ink-3" : "opacity-70"
+              className={`font-display font-semibold leading-none ${big ? "text-[2.25rem]" : board ? "text-[1.75rem]" : "text-lg"} ${
+                isHit ? (board ? "text-brand-red" : "text-brand-cream") : board ? "text-brand-green" : "opacity-70"
               }`}
             >
               {LETTERS[i]}
             </span>
             <div className="min-w-0">
-              <div className={`${big ? "text-[1.45rem] leading-tight mb-1.5" : board ? "text-[1.25rem] leading-tight mb-1.5" : "text-base leading-snug mb-1"} truncate`}>
+              <div className={`font-normal ${big ? "text-[1.45rem] leading-tight mb-1.5" : board ? "text-[1.25rem] leading-tight mb-1.5" : "text-base leading-snug mb-1"} truncate`}>
                 {label}
               </div>
               <div
@@ -54,13 +54,13 @@ export function VoteBars({ options, counts, revealed, correct, size = "board" }:
               >
                 <div
                   className={`bar-fill absolute inset-0 rounded-[3px] ${
-                    isHit ? (board ? "bg-amber" : "bg-amber") : board ? "bg-ink" : "bg-paper"
+                    isHit ? (board ? "bg-brand-red" : "bg-brand-cream") : board ? "bg-brand-green" : "bg-brand-cream/60"
                   }`}
                   style={{ transform: `scaleX(${scale})` }}
                 />
               </div>
             </div>
-            <div className={`font-display tabular text-right leading-none ${big ? "text-[2.25rem]" : board ? "text-[1.75rem]" : "text-lg"}`}>
+            <div className={`font-display font-semibold tabular text-right leading-none ${big ? "text-[2.25rem]" : board ? "text-[1.75rem]" : "text-lg"}`}>
               {revealed ? `${pct}%` : count}
             </div>
           </li>
