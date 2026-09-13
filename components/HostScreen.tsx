@@ -19,9 +19,11 @@ interface Props {
   resetOnLoad: boolean;
   /** `?motion=0` — no entrance animations (screenshots, a projector that stutters). */
   motion: boolean;
+  /** LAN origin (e.g. http://192.168.88.123:3000) so QR works for phones when the host page is opened via localhost. */
+  lanOrigin: string;
 }
 
-export function HostScreen({ code, hostKey, initialSim, resetOnLoad, motion }: Props) {
+export function HostScreen({ code, hostKey, initialSim, resetOnLoad, motion, lanOrigin }: Props) {
   const [sim, setSim] = useState(initialSim);
   const { state, error, act } = useSession({ code, sim, hostKey, pollMs: 1000 });
   const origin = useOrigin();
@@ -91,7 +93,10 @@ export function HostScreen({ code, hostKey, initialSim, resetOnLoad, motion }: P
     return () => mm.revert();
   }, [phase, motion]);
 
-  const joinUrl = origin ? `${origin}/j/${code}` : "";
+  // Phones cannot reach "localhost" — swap in the machine's LAN address for the QR.
+  const isLoopback = /^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:|$)/.test(origin);
+  const qrOrigin = isLoopback && lanOrigin ? lanOrigin : origin;
+  const joinUrl = qrOrigin ? `${qrOrigin}/j/${code}` : "";
   const shortUrl = joinUrl.replace(/^https?:\/\//, "");
 
   return (
