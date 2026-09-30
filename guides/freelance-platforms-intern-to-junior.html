@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Top 10 Freelance Platforms (Not Upwork or Fiverr) — Intern to Junior Developer Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 16mm 15mm 18mm 15mm;
+      @bottom-left {
+        content: "Intern → Junior  ·  Freelance & Bounty Playbook";
+        font-size: 8pt;
+        color: #64748b;
+        font-family: "Liberation Sans", Arial, sans-serif;
+      }
+      @bottom-right {
+        content: counter(page);
+        font-size: 8pt;
+        color: #64748b;
+        font-family: "Liberation Sans", Arial, sans-serif;
+      }
+    }
+    @page :first {
+      margin: 0;
+      @bottom-left { content: none; }
+      @bottom-right { content: none; }
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      color: #1e293b;
+      font-family: "Liberation Sans", "Nimbus Sans", "DejaVu Sans", Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+    }
+
+    h1, h2, h3, h4 { page-break-after: avoid; color: #0f172a; }
+    h2 {
+      font-size: 15.5pt;
+      margin: 18pt 0 8pt;
+      padding-bottom: 4pt;
+      border-bottom: 2px solid #0f766e;
+      color: #134e4a;
+    }
+    h3 {
+      font-size: 12pt;
+      margin: 14pt 0 6pt;
+      color: #1e3a5f;
+    }
+    h4 {
+      font-size: 10.5pt;
+      margin: 10pt 0 4pt;
+      color: #0f766e;
+    }
+    p { margin: 0 0 7pt; }
+    ul, ol { margin: 0 0 8pt; padding-left: 16pt; }
+    li { margin-bottom: 3pt; }
+    a { color: #0f766e; text-decoration: none; }
+    code, .mono {
+      font-family: "Liberation Mono", "DejaVu Sans Mono", Consolas, monospace;
+      font-size: 8.5pt;
+      background: #f1f5f9;
+      padding: 1pt 4pt;
+      border-radius: 3px;
+    }
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: "Liberation Mono", "DejaVu Sans Mono", Consolas, monospace;
+      font-size: 8pt;
+      line-height: 1.4;
+      padding: 10pt 12pt;
+      border-radius: 6pt;
+      white-space: pre-wrap;
+      page-break-inside: avoid;
+    }
+
+    .cover {
+      page-break-after: always;
+      min-height: 297mm;
+      background: linear-gradient(165deg, #0b3a3a 0%, #134e4a 42%, #1e3a5f 100%);
+      color: #fff;
+      padding: 28mm 18mm 18mm;
+      position: relative;
+    }
+    .cover-kicker {
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      font-size: 9pt;
+      color: #99f6e4;
+      font-weight: 700;
+      margin-bottom: 14pt;
+    }
+    .cover h1 {
+      color: #fff;
+      font-size: 28pt;
+      line-height: 1.15;
+      margin: 0 0 12pt;
+      border: 0;
+    }
+    .cover .sub {
+      font-size: 12.5pt;
+      color: #ccfbf1;
+      max-width: 150mm;
+      margin-bottom: 18pt;
+    }
+    .cover-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8pt;
+      margin-top: 18pt;
+      max-width: 170mm;
+    }
+    .cover-chip {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8pt;
+      padding: 9pt 11pt;
+    }
+    .cover-chip strong { display: block; color: #99f6e4; font-size: 8pt; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 2pt; }
+    .cover-note {
+      position: absolute;
+      left: 18mm;
+      right: 18mm;
+      bottom: 18mm;
+      font-size: 9pt;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      padding-top: 10pt;
+    }
+
+    .toc { page-break-after: always; padding-top: 4mm; }
+    .toc ol { padding-left: 18pt; }
+    .toc li { margin-bottom: 5pt; }
+    .toc .sec { font-weight: 700; color: #134e4a; }
+
+    .badge {
+      display: inline-block;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      padding: 2pt 6pt;
+      border-radius: 10pt;
+      vertical-align: middle;
+      margin-left: 4pt;
+    }
+    .start { background: #d1fae5; color: #065f46; }
+    .good { background: #dbeafe; color: #1e40af; }
+    .later { background: #fef3c7; color: #92400e; }
+    .senior { background: #fee2e2; color: #991b1b; }
+    .dead { background: #e2e8f0; color: #334155; }
+    .warn { background: #ffedd5; color: #9a3412; }
+
+    .card {
+      border: 1px solid #d1d5db;
+      border-radius: 8pt;
+      padding: 9pt 11pt 8pt;
+      margin: 0 0 9pt;
+      page-break-inside: avoid;
+      background: #fff;
+    }
+    .card h3 { margin-top: 0; }
+    .meta {
+      display: grid;
+      grid-template-columns: 28mm 1fr;
+      gap: 2pt 8pt;
+      margin-top: 4pt;
+    }
+    .meta dt {
+      font-weight: 700;
+      color: #0f766e;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .meta dd { margin: 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6pt 0 12pt;
+      font-size: 9pt;
+      page-break-inside: auto;
+    }
+    th {
+      background: #134e4a;
+      color: #fff;
+      text-align: left;
+      padding: 5pt 6pt;
+      font-weight: 700;
+    }
+    td {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 5pt 6pt;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    .callout {
+      border-left: 4px solid #0f766e;
+      background: #f0fdfa;
+      padding: 8pt 10pt;
+      margin: 8pt 0 12pt;
+      page-break-inside: avoid;
+    }
+    .callout.warn-box {
+      border-left-color: #c2410c;
+      background: #fff7ed;
+    }
+    .callout.red-box {
+      border-left-color: #b91c1c;
+      background: #fef2f2;
+    }
+    .callout .t {
+      font-weight: 700;
+      color: #134e4a;
+      margin-bottom: 3pt;
+    }
+    .callout.warn-box .t { color: #9a3412; }
+    .callout.red-box .t { color: #991b1b; }
+
+    .flow {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8pt;
+      padding: 12pt 14pt;
+      font-family: "Liberation Mono", "DejaVu Sans Mono", monospace;
+      font-size: 8.5pt;
+      line-height: 1.55;
+      white-space: pre;
+      page-break-inside: avoid;
+      margin: 8pt 0 12pt;
+    }
+    table.keep { page-break-inside: avoid; }
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8pt;
+      margin: 8pt 0 12pt;
+    }
+    .box {
+      border: 1px solid #cbd5e1;
+      border-radius: 8pt;
+      padding: 8pt 10pt;
+      page-break-inside: avoid;
+    }
+    .box h4 { margin-top: 0; }
+    .keep { page-break-inside: avoid; }
+    .small { font-size: 9pt; color: #475569; }
+  </style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="cover-kicker">Developer playbook  ·  No Upwork  ·  No Fiverr</div>
+  <h1>Top 10 Freelance Platforms<br/>&amp; Intern → Junior Path</h1>
+  <p class="sub">A practical guide for developers with internship experience who need paid work, public proof, and a real title change — without bidding against seniors with hundreds of five-star reviews.</p>
+  <div class="cover-meta">
+    <div class="cover-chip"><strong>Who this is for</strong>Interns and junior-bound full-stack developers (.NET, Laravel, React, Next.js, Jetpack Compose)</div>
+    <div class="cover-chip"><strong>Goal</strong>Earn early income, ship real portfolio work, and list yourself as Freelance / Junior Developer</div>
+    <div class="cover-chip"><strong>Not included</strong>Upwork and Fiverr — high-review bidding markets that stall beginners</div>
+    <div class="cover-chip"><strong>Read the badges</strong>Start here · Good fit · Later · Senior-only · Inactive</div>
+  </div>
+  <div class="cover-note">
+    Organized from your research notes, with intern-fit labels and current platform status
+    (Replit Bounties closed; BountySource defunct; Huntr OSS program sunset). Never pay to get hired.
+  </div>
+</section>
+
+<section class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><span class="sec">How to use this guide</span> — intern-to-junior reality check</li>
+    <li><span class="sec">Top 10 platforms (not Upwork / Fiverr)</span></li>
+    <li><span class="sec">Best platforms for former interns</span></li>
+    <li><span class="sec">Practical seniority strategy</span></li>
+    <li><span class="sec">GitHub bounties beyond Algora</span></li>
+    <li><span class="sec">Where you should try first</span></li>
+    <li><span class="sec">Microsoft, Discord, and other OSS bounties</span></li>
+    <li><span class="sec">VS Code, Telegram, GitHub Apps</span></li>
+    <li><span class="sec">Other ecosystems (CMS, Chrome, Linux, APIs, AI)</span></li>
+    <li><span class="sec">Stack-specific start (.NET / Laravel / React / Compose)</span></li>
+    <li><span class="sec">Do you pay? Is there an interview?</span></li>
+    <li><span class="sec">Beginner prices</span></li>
+    <li><span class="sec">Are these legit if they are not as famous as Upwork?</span></li>
+    <li><span class="sec">Day-1 checklist &amp; scam red flags</span></li>
+  </ol>
+
+  <div class="callout">
+    <div class="t">The intern problem in one sentence</div>
+    Breaking in as a developer with only internships is hard on major bidding sites because you compete against senior engineers with hundreds of reviews. The fix is not a better Upwork proposal. It is curated gigs, paid GitHub issues, micro-services with a tight scope, and converting internships into junior proof.
+  </div>
+</section>
+
+<h2>1. How to use this guide</h2>
+<p>Use the color badges on every platform:</p>
+<ul>
+  <li><span class="badge start">Start here</span> Realistic this month with internship-only experience</li>
+  <li><span class="badge good">Good fit</span> Useful once you have 1–3 public samples or reviews</li>
+  <li><span class="badge later">Later</span> Fine to set up a profile, but do not wait here for clients</li>
+  <li><span class="badge senior">Senior only</span> Screening is built for proven seniors — skip until you have production years</li>
+  <li><span class="badge dead">Inactive</span> Closed, bankrupt, or pivoted — do not plan income here</li>
+</ul>
+<div class="callout warn-box">
+  <div class="t">Do not apply to Toptal, Braintrust, or Arc.dev first</div>
+  They are excellent networks — for people companies already pay $80–$150/hr. They will not bridge intern → junior. Your first wins come from micro-tasks, bounties, local clients, and contract filters on Wellfound / Contra.
+</div>
+
+<h2>2. Top 10 freelance platforms (not Upwork or Fiverr)</h2>
+
+<h3>Vetted &amp; high-end networks</h3>
+
+<div class="card">
+  <h3>1. Toptal <span class="badge senior">Senior only</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>Senior developers, financial experts, product managers, and designers</dd>
+    <dt>How it works</dt><dd>Rigorously screens applicants and accepts only the top 3% of talent. There is no public bidding. Toptal manually matches you with high-budget clients (often Fortune 500 companies and funded startups).</dd>
+    <dt>Fees</dt><dd>0% fee for freelancers (Toptal charges clients a markup)</dd>
+    <dt>Intern note</dt><dd>Do not spend weeks on the screening. Come back after you have shipped paid client work and can pass live coding + English interviews.</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3>2. Braintrust <span class="badge senior">Senior only</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>Tech professionals, software engineers, and product strategists</dd>
+    <dt>How it works</dt><dd>A decentralized, user-owned network that matches tech talent with enterprise clients such as NASA, Nestlé, and Deloitte.</dd>
+    <dt>Fees</dt><dd>0% platform fee for freelancers (clients pay a flat 10% fee)</dd>
+    <dt>Intern note</dt><dd>Enterprise buyers expect mid/senior resumes. Create a profile later; do not wait for matches.</dd>
+  </dl>
+</div>
+
+<h3>Commission-free &amp; modern alternatives</h3>
+
+<div class="card">
+  <h3>3. Contra <span class="badge start">Start here</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>Digital nomads, designers, writers, and tech independents building a brand portfolio</dd>
+    <dt>How it works</dt><dd>Hybrid of portfolio showcase and marketplace. Clients can discover your profile and hire you, or you send commission-free invoices to existing clients.</dd>
+    <dt>Fees</dt><dd>0% commission on earnings (optional ~$29/mo Pro features)</dd>
+    <dt>Intern note</dt><dd>Best used as a clean public shop window for 2–3 micro-services, not as a place you wait for inbound leads. Replit pointed former Bounties users here after shutting down.</dd>
+    <dt>URL</dt><dd>contra.com</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3>4. Hubstaff Talent <span class="badge good">Good fit</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>Developers, marketers, and virtual assistants looking for ongoing remote roles</dd>
+    <dt>How it works</dt><dd>A transparent directory. You post a profile and hourly rate. Clients contact you directly — no bidding, no middleman.</dd>
+    <dt>Fees</dt><dd>100% free for freelancers and clients (supported by Hubstaff’s time-tracking product)</dd>
+    <dt>Intern note</dt><dd>Fill rate, stack, and a live GitHub/demo. Set $15–$25/hr. Check weekly; do not refresh all day.</dd>
+    <dt>URL</dt><dd>talent.hubstaff.com</dd>
+  </dl>
+</div>
+
+<h3>Traditional general marketplaces</h3>
+
+<div class="card">
+  <h3>5. Freelancer.com <span class="badge later">Later</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>Generalists across software, writing, design, and data entry who want high volume of global listings</dd>
+    <dt>How it works</dt><dd>The closest direct equivalent to Upwork’s bidding model. Clients post jobs; freelancers submit proposals and bids.</dd>
+    <dt>Fees</dt><dd>10% or $5 (whichever is higher) for fixed-price; 10% for hourly</dd>
+    <dt>Intern note</dt><dd>Same trap as Upwork: volume + bid wars. If you use it, only bid on tiny, specific bugfix jobs — never “build my full app.”</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3>6. Guru <span class="badge good">Good fit</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>Long-term contracts, technical projects, and small agencies</dd>
+    <dt>How it works</dt><dd>Flexible terms (hourly, fixed-price, recurring, milestones) plus digital Workrooms for project management.</dd>
+    <dt>Fees</dt><dd>5% to 9% depending on membership tier</dd>
+    <dt>Intern note</dt><dd>Less crowded than Upwork. Profile + 3 samples still matter more than the number of bids you send.</dd>
+    <dt>URL</dt><dd>guru.com</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3>7. PeoplePerHour <span class="badge start">Start here</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>European and UK-based work in web development, design, and content</dd>
+    <dt>How it works</dt><dd>Mix of proposal bidding and pre-packaged fixed-price bundles called Hourlies.</dd>
+    <dt>Fees</dt><dd>3.5% to 20% (tiered by lifetime earnings per client; drops to 3.5% for repeat clients)</dd>
+    <dt>Intern note</dt><dd>Hourlies are the intern-friendly path: “I will add a Laravel/ASP.NET endpoint,” not open bidding. Stronger for EU time zones than US platforms.</dd>
+    <dt>URL</dt><dd>peopleperhour.com</dd>
+  </dl>
+</div>
+
+<h3>Specialist &amp; niche platforms</h3>
+
+<div class="card">
+  <h3>8. Arc.dev <span class="badge senior">Senior only</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>Senior software developers seeking full-time remote or long-term contract roles</dd>
+    <dt>How it works</dt><dd>Tech-only. After video and technical coding assessments, Arc pitches your profile to companies.</dd>
+    <dt>Fees</dt><dd>0% fee for developers</dd>
+    <dt>Intern note</dt><dd>Assessments assume job-ready seniors. Skip until you have a junior title plus public PRs.</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3>9. 99designs <span class="badge later">Later</span> <span class="badge warn">Designers</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>Graphic designers, illustrators, brand strategists, and UI/UX specialists</dd>
+    <dt>How it works</dt><dd>Client design contests (winner selected) or direct 1-on-1 project contracts</dd>
+    <dt>Fees</dt><dd>15%–20% project fee by designer level, plus a $100 introduction fee spread across the first $500 with a new client</dd>
+    <dt>Intern note</dt><dd>Not a developer marketplace. Only useful if you sell UI/brand work, not APIs.</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3>10. Wellfound (formerly AngelList Talent) <span class="badge start">Start here</span></h3>
+  <dl class="meta">
+    <dt>Best for</dt><dd>Developers, startup growth marketers, and product people who want early-stage to growth startups</dd>
+    <dt>How it works</dt><dd>Direct network, not a gig bidding site. You apply to companies with an hourly contract rate or contract-to-hire preference.</dd>
+    <dt>Fees</dt><dd>0% fee for freelancers (companies pay for recruiting tools)</dd>
+    <dt>Intern note</dt><dd>Filter Contract / Part-time / Freelance. Early startups often cannot pay $120/hr seniors and will take a hungry intern-level contractor for 10–20 hours/week.</dd>
+    <dt>URL</dt><dd>wellfound.com</dd>
+  </dl>
+</div>
+
+<table class="keep">
+  <thead>
+    <tr>
+      <th>#</th><th>Platform</th><th>Fee (you)</th><th>Intern → junior?</th><th>Use it for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Toptal</td><td>0%</td><td>No — senior screening</td><td>Ignore until mid-level</td></tr>
+    <tr><td>2</td><td>Braintrust</td><td>0%</td><td>No — enterprise talent</td><td>Ignore until mid-level</td></tr>
+    <tr><td>3</td><td>Contra</td><td>0%</td><td>Yes — portfolio + invoices</td><td>3 packaged micro-services</td></tr>
+    <tr><td>4</td><td>Hubstaff Talent</td><td>0%</td><td>Yes — free directory</td><td>Profile + $15–$25/hr</td></tr>
+    <tr><td>5</td><td>Freelancer.com</td><td>10% / $5</td><td>Weak — same as Upwork</td><td>Tiny bug tickets only</td></tr>
+    <tr><td>6</td><td>Guru</td><td>5–9%</td><td>Maybe — less crowded</td><td>Longer technical jobs</td></tr>
+    <tr><td>7</td><td>PeoplePerHour</td><td>3.5–20%</td><td>Yes — Hourlies</td><td>EU/UK fixed bundles</td></tr>
+    <tr><td>8</td><td>Arc.dev</td><td>0%</td><td>No — senior tech</td><td>Ignore until junior+</td></tr>
+    <tr><td>9</td><td>99designs</td><td>15–20%</td><td>No — design contests</td><td>Skip unless you design</td></tr>
+    <tr><td>10</td><td>Wellfound</td><td>0%</td><td>Yes — contract filter</td><td>Startup 10–20h/week gigs</td></tr>
+  </tbody>
+</table>
+
+<h2>3. Best freelance &amp; contract platforms for former interns</h2>
+<p>To bridge intern → junior, earn early income, and build real portfolio projects, target curated gig sites, open-source micro-tasks, and specialist hubs — not $5,000 full-stack contests.</p>
+
+<div class="card">
+  <h3>1. Codementor <span class="badge later">Later</span> <span class="badge warn">Needs spoken English</span></h3>
+  <p><strong>Why it fits:</strong> Instead of competing for massive $5,000 full-stack builds, you offer live 1-on-1 video help, code reviews, and bug fixes for beginners or non-technical founders.</p>
+  <p><strong>Why it builds seniority:</strong> Explaining code, debugging someone else’s repository, and refactoring PRs shows mid-level engineering better than tutorial projects.</p>
+  <p><strong>Earnings:</strong> $15–$30+ per 15-minute session to start.</p>
+  <p><strong>Honest catch:</strong> Sessions are live video. If spoken English is still around B1, skip this until B2. Written bounties and Hourlies are a better first step.</p>
+</div>
+
+<div class="card">
+  <h3>2. Codeur (and similar local EU boards) <span class="badge good">Good fit</span></h3>
+  <p><strong>Why it fits:</strong> Entry-level developers struggle to find whole clients. Boards like Codeur (France) and other European contract sites list bite-sized maintenance: fix a CSS grid, add an API endpoint, run a database migration.</p>
+  <p><strong>Why it builds seniority:</strong> You work inside existing codebases — the core junior-developer expectation.</p>
+  <p><strong>Note:</strong> Codeable is <em>not</em> a beginner network. It is a vetted WordPress expert marketplace. Do not apply to Codeable with internship-only experience. Use Codeur / local boards / GitHub issues instead. Microverse is a paid school, not a gig board.</p>
+</div>
+
+<div class="card">
+  <h3>3. GitHub bounties &amp; Algora <span class="badge start">Start here</span></h3>
+  <p><strong>Why it fits:</strong> Open-source projects and tech startups attach cash ($50–$500 typical) to specific GitHub issues.</p>
+  <p><strong>Why it builds seniority:</strong> You submit real PRs, take code review from maintainers, and build a public commit history anyone can verify.</p>
+  <p><strong>Where:</strong> Algora.io, Opire, BountyHub, and GitHub search <code>label:"bounty"</code>. BountySource is defunct — do not use it.</p>
+</div>
+
+<div class="card">
+  <h3>4. Wellfound — Contract / gig filter <span class="badge start">Start here</span></h3>
+  <p>Filter Part-Time, Freelance, Contract, and intern-to-junior roles. Pitch 10–15 hours/week of API work, bug fixes, or Docker — not “hire me as senior full-stack.”</p>
+</div>
+
+<div class="card">
+  <h3>5. Contra micro-services <span class="badge start">Start here</span></h3>
+  <p>No bid fees, no commission. Showcase specific offers:</p>
+  <ul>
+    <li>“I will build a responsive React / Next.js landing page”</li>
+    <li>“I will design and deploy a REST API with .NET or Laravel”</li>
+    <li>“I will containerize your app with Docker Compose”</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Bonus: Catchafire <span class="badge good">Good fit</span></h3>
+  <p>Volunteer or small-stipend tech projects for non-profits. Pay is low, but 2–3 finished end-to-end projects give client references you can list as <strong>Freelance Software Engineer</strong> instead of only Intern.</p>
+</div>
+
+<h2>4. Practical strategy to upgrade seniority</h2>
+<div class="flow">[ Internship experience ]
+        │
+        ▼
+[ Micro-bounties &amp; bug fixes ]  ──► proves you can debug real code
+        │
+        ▼
+[ Fixed-price small projects ]  ──► proves you can deliver end-to-end
+        │
+        ▼
+[ Resume / portfolio update ]   ──► title moves Intern ➔ Junior / Freelance Dev</div>
+
+<h3>Offer micro-services with clear scope</h3>
+<p>Do not bid on “Build a full web application.” Offer tight tasks:</p>
+<ul>
+  <li>Fix CORS, database connection, or authentication issues in an API</li>
+  <li>Convert a Figma design into responsive React or Jetpack Compose components</li>
+  <li>Containerize a local project with Docker Compose</li>
+</ul>
+
+<h3>Frame the work as independent engineering</h3>
+<p>On LinkedIn and CV, group gigs under one title:</p>
+<div class="callout">
+  <div class="t">Title: Independent Software Contractor / Freelance Developer</div>
+  Bullets focus on production impact, not tools: “Built and deployed REST APIs for local clients.” “Optimized database queries.” “Integrated third-party authentication.” “Fixed auth and CORS issues in existing codebases.”
+</div>
+
+<h2>5. GitHub bounties beyond Algora</h2>
+<p>Algora is visible, not unique. Several boards attach money to GitHub issues or similar micro-tasks.</p>
+
+<h3>Dedicated GitHub issue bounty platforms</h3>
+<table>
+  <thead>
+    <tr><th>Platform</th><th>How it works</th><th>Best for</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Opire<br/><span class="mono">opire.dev</span></td>
+      <td>Maintainer attaches cash with a bot command. You claim, PR, get paid on merge (Stripe).</td>
+      <td>Web, API fixes, general OSS. Low barrier.</td>
+      <td><span class="badge start">Start here</span></td>
+    </tr>
+    <tr>
+      <td>BountyHub<br/><span class="mono">bountyhub.dev</span></td>
+      <td>Paste a GitHub issue URL to fund or solve. Crowdfunded bounties. Stripe/PayPal, 120+ countries.</td>
+      <td>When you need a payout country that Stripe supports.</td>
+      <td><span class="badge start">Start here</span></td>
+    </tr>
+    <tr>
+      <td>IssueHunt<br/><span class="mono">issuehunt.io</span></td>
+      <td>Older GitHub bounty site. Funders attach money to repo issues.</td>
+      <td>Check the GitHub issue is still open before coding — listings can go stale.</td>
+      <td><span class="badge later">Later</span></td>
+    </tr>
+    <tr>
+      <td>Algora<br/><span class="mono">algora.io</span></td>
+      <td>Bounties on issues; also used by companies to hire from OSS contributors.</td>
+      <td>Search GitHub <code>label:"💎 Bounty"</code></td>
+      <td><span class="badge start">Start here</span></td>
+    </tr>
+    <tr>
+      <td>Gitpay<br/><span class="mono">gitpay.org</span></td>
+      <td>OSS task marketplace tied to git workflows. Small features/bugs with dollar amounts.</td>
+      <td>Small listed tasks</td>
+      <td><span class="badge good">Good fit</span></td>
+    </tr>
+    <tr>
+      <td>BountySource</td>
+      <td>Historic aggregator for desktop/Linux app bounties.</td>
+      <td>—</td>
+      <td><span class="badge dead">Inactive</span> bankrupt / site down</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Web3 &amp; crypto code bounties (you do not need smart contracts)</h3>
+<div class="card">
+  <h3>Superteam Earn <span class="badge start">Start here</span> — earn.superteam.fun</h3>
+  <p>Full-stack, backend (Node / .NET / Python), frontend (React / Next.js), mobile. Companies post fixed tasks: API integrations, UI components. Typical $100–$2,500+. Paid in USDC (convert via a normal exchange). No developer platform fee.</p>
+</div>
+<div class="card">
+  <h3>Gitcoin <span class="badge good">Good fit</span> — gitcoin.co</h3>
+  <p>OSS tools, docs, UI, infrastructure. Grants and issue bounties funded by DAOs and foundations.</p>
+</div>
+
+<h3>Security vs feature work</h3>
+<div class="two">
+  <div class="box">
+    <h4>Feature / code bounties (your path)</h4>
+    <p>Fix bugs, write features, submit PRs.</p>
+    <p>Algora · Opire · IssueHunt · BountyHub · Superteam · GitHub search</p>
+  </div>
+  <div class="box">
+    <h4>Security / bug bounties (later)</h4>
+    <p>Find vulnerabilities, file reports. Not intern-friendly as a first income plan.</p>
+    <p>MSRC · HackerOne · Bugcrowd · Huntr (now AI challenges, OSS program sunset)</p>
+  </div>
+</div>
+<div class="callout warn-box">
+  <div class="t">Huntr is no longer a general OSS patch board</div>
+  Huntr’s traditional open-source vulnerability program stopped new submissions mid-2026 and pivoted to AI security challenges. Do not plan Laravel/.NET intern income there. Microsoft .NET / ASP.NET Core bounties are security-only (often $1,250–$40,000) via MSRC — not “add a feature” work.
+</div>
+
+<h3>Search GitHub directly</h3>
+<p>Many companies never list on a third-party board. Use:</p>
+<pre>is:issue is:open label:bounty
+label:"help wanted" "bounty"
+label:"paid"
+label:"💎 Bounty"
+
+is:issue is:open label:bounty "laravel"
+is:issue is:open label:bounty "dotnet"
+is:issue is:open label:bounty "react"
+is:issue is:open label:bounty "vscode-extension"
+is:issue is:open label:bounty "github action"</pre>
+<p><strong>Beginner rule:</strong> Before coding, open the repo’s Pull Requests tab. If maintainers are not merging community PRs, walk away — your work will sit unpaid.</p>
+
+<h2>6. Where you should try first</h2>
+<p>Match the board to payout style and to a .NET / Laravel / React / Next.js / Compose stack.</p>
+
+<table>
+  <thead>
+    <tr><th>Order</th><th>Place</th><th>Why try it</th><th>Your target tasks</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Opire + GitHub <code>label:bounty</code></td>
+      <td>No interview. Payment on merge. Public seniority.</td>
+      <td>Laravel tests, .NET API bugs, React UI, Docker files</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>BountyHub</td>
+      <td>Stripe/PayPal, crowdfunded issues, 120+ countries</td>
+      <td>Same as above; check no open competing PR</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Superteam Earn</td>
+      <td>Higher $ on React/Next and API work; no Solidity required</td>
+      <td>Frontend pages, REST adapters, Mini App UI</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>PeoplePerHour Hourlies + Contra</td>
+      <td>Packaged services, EU clients, 0% on Contra</td>
+      <td>Auth fix, Figma→React, Docker Compose</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Wellfound contract filter</td>
+      <td>Startups need 10–15h/week executors</td>
+      <td>Short paid trial, then weekly retainer</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>Replit Bounties</td>
+      <td>Used to be $50–$300 bot/web gigs</td>
+      <td><span class="badge dead">Closed Sept 2025</span> — they pointed users to Contra</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>How to win the first bounty</h3>
+<ol>
+  <li><strong>Check activity first.</strong> Recent merges within days, not months.</li>
+  <li><strong>Comment before coding.</strong> Example: “I’d like to take this. I plan to update the API controller, refactor the service layer, and add unit tests.”</li>
+  <li><strong>Skip crowded issues.</strong> If 8 PRs already exist, pick another.</li>
+  <li><strong>Ship tests + README.</strong> Maintainers merge the PR that is easy to trust.</li>
+</ol>
+
+<h2>7. Microsoft, Discord, and other open-source apps</h2>
+<p>Yes — but feature bounties and security bounties are different programs.</p>
+
+<h3>Microsoft</h3>
+<ul>
+  <li><strong>.NET &amp; ASP.NET Core Bounty (MSRC):</strong> Supported RTM versions, related GitHub Actions, docs samples. Payouts often $1,250–$40,000. This is vulnerability research, not intern feature work.</li>
+  <li><strong>Microsoft OSS vulnerability bounties:</strong> Select Microsoft-owned GitHub repos, up to about $15,000.</li>
+  <li>There is no Algora-style “add this endpoint” board for Microsoft product features.</li>
+</ul>
+
+<h3>Discord bots &amp; apps</h3>
+<p>Discord has no central bounty board. Work lives in community hubs:</p>
+<ul>
+  <li><strong>Developer Discord servers</strong> with <code>#jobs-and-gigs</code> / <code>#bounties</code>: The Coding Den, Discord API, Discord.js, Discord.Net. Typical $50–$300 for bots, webhooks, host migrations.</li>
+  <li><strong>Replit Bounties:</strong> used to be the main Discord-bot gig board — <strong>shut down September 2025</strong>. Use Contra + those Discord job channels instead.</li>
+  <li>Open-source Discord-like projects (Revolt, Matrix/Element) sometimes fund issues via Opire/IssueHunt.</li>
+</ul>
+<p><strong>Skills:</strong> Node (discord.js), C# (Discord.Net), Python (discord.py), SQLite/PostgreSQL, Docker.</p>
+
+<h2>8. VS Code, Telegram, GitHub Apps</h2>
+<table>
+  <thead>
+    <tr><th>Ecosystem</th><th>Where</th><th>Ideal stack</th><th>What to search / build</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VS Code extensions</td>
+      <td>Opire / BountyHub / GitHub issues</td>
+      <td>TypeScript, VS Code API, Webviews, LSP</td>
+      <td><code>is:issue label:bounty "vscode-extension"</code></td>
+    </tr>
+    <tr>
+      <td>Telegram Mini Apps &amp; bots</td>
+      <td>Superteam Earn, TON contests, tg.dev contests</td>
+      <td>React/Next, Node, Laravel, C#</td>
+      <td>Mini App UI, bot payments, telegraf/grammy. Official bug bounty: security@telegram.org ($100–$10,000, security not features).</td>
+    </tr>
+    <tr>
+      <td>Discord</td>
+      <td>Dev Discord #jobs, Contra</td>
+      <td>Node, C#, Python, Docker</td>
+      <td>Moderation bots, ticketing, webhooks</td>
+    </tr>
+    <tr>
+      <td>GitHub Actions &amp; Apps</td>
+      <td>GitHub issue search</td>
+      <td>TypeScript, Go, Docker</td>
+      <td><code>label:bounty "github action"</code> · <code>label:bounty "bot"</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>9. Other ecosystems</h2>
+<table>
+  <thead>
+    <tr><th>Ecosystem</th><th>Platform / search</th><th>Best stack</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Laravel / PHP packages, Filament, tests</td><td>GitHub <code>label:bounty laravel</code>, Opire, Coolify issues</td><td>PHP, Laravel, MySQL</td></tr>
+    <tr><td>WordPress / WooCommerce</td><td>GitHub bounty labels; Codeable is expert-only</td><td>PHP — skip Codeable until you are a WP specialist</td></tr>
+    <tr><td>Strapi / Directus</td><td>Repo issues + Opire</td><td>JS/TS, REST/GraphQL hooks</td></tr>
+    <tr><td>Chrome / Firefox extensions</td><td><code>label:bounty "chrome extension"</code>, Contra, Wellfound</td><td>TypeScript, Manifest V3</td></tr>
+    <tr><td>elementary OS / KDE / GNOME</td><td>bounty.elementary.io, community funds</td><td>C++, Rust, Vala, GTK — only if you already know desktop stacks</td></tr>
+    <tr><td>AsyncAPI</td><td>Quarterly bounty rounds ~$100–$500</td><td>API specs, SDK/CLI generators</td></tr>
+    <tr><td>FinMind &amp; open-data APIs</td><td>GitHub bounties ~$50–$1,000</td><td>Connectors, ORM adapters</td></tr>
+    <tr><td>AI / MCP servers</td><td><code>label:bounty "mcp"</code></td><td>Python, Node, C# / .NET</td></tr>
+  </tbody>
+</table>
+
+<h2>10. Consider your stack — where to start</h2>
+<p>For a backend-heavy full-stack mix of <strong>.NET / C#</strong>, <strong>PHP / Laravel</strong>, <strong>React / Next.js / TypeScript</strong>, and <strong>Kotlin / Jetpack Compose</strong>, you do not need generic bidding. Start in this order.</p>
+
+<h3>Phase 1 — high-probability micro-gigs</h3>
+<ol>
+  <li><strong>GitHub + Opire / BountyHub (today).</strong> Search <code>laravel</code>, <code>dotnet</code>, <code>react</code>. Comment, then PR with tests.</li>
+  <li><strong>Superteam Earn (today).</strong> Frontend / integration tasks $100–$500. Submit a live Next.js or API demo. Replit is gone — do not look for it.</li>
+  <li><strong>PeoplePerHour Hourlies + Contra (this week).</strong> Three packaged offers (see below).</li>
+</ol>
+
+<h3>Phase 2 — open-source seniority</h3>
+<p>Target issues about API routes, PHPUnit / xUnit coverage, DI/ORM bugs, Docker. Never write code until a maintainer confirms the bounty is live.</p>
+
+<h3>Phase 3 — client contracts</h3>
+<p><strong>Wellfound:</strong> “I specialize in .NET and Laravel REST APIs and React frontends. I can do 10–15 hours/week of endpoints, bug fixes, or Docker Compose.”</p>
+<p><strong>Contra services to publish:</strong></p>
+<ol>
+  <li>Production-ready REST API in Laravel or ASP.NET Core with JWT</li>
+  <li>Figma → responsive React / Next.js</li>
+  <li>Docker Compose for local app + database</li>
+</ol>
+
+<div class="callout">
+  <div class="t">Coolify is a strong Laravel match</div>
+  coollabsio/coolify often has PHP/Laravel bounties in a beginner-accessible range. Filter for issues with few competing PRs.
+</div>
+
+<h2>11. Do you pay? Is there an interview?</h2>
+<div class="callout red-box">
+  <div class="t">You never pay to work</div>
+  Legit boards never ask for money to get hired, unlock payouts, buy equipment, or “verify” an account. Processing fees, crypto deposits, and setup fees = scam.
+</div>
+
+<table>
+  <thead>
+    <tr><th></th><th>Apply / submit</th><th>When you get paid</th><th>Interview?</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Opire, BountyHub, GitHub issues</td>
+      <td>Free</td>
+      <td>You keep the bounty; funder is charged</td>
+      <td>None. The code review is the interview.</td>
+    </tr>
+    <tr>
+      <td>Superteam Earn</td>
+      <td>Free</td>
+      <td>Full listed USDC, no developer cut</td>
+      <td>None. Owner picks the best submitted demo.</td>
+    </tr>
+    <tr>
+      <td>Contra, Guru, PeoplePerHour</td>
+      <td>Free to apply</td>
+      <td>Platform or card fees after you earn</td>
+      <td>Sometimes a short chat after they like a sample.</td>
+    </tr>
+    <tr>
+      <td>Wellfound / Contra contracts</td>
+      <td>Free</td>
+      <td>Agreed rate</td>
+      <td>15–30 min Discord/Meet: stack check + paid trial. Not an HR loop.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>12. What prices should you take as a beginner?</h2>
+<p>Charge <strong>fixed-price micro-gigs</strong>, not “I will google for $8/hr.” Fixed scope removes client fear and hides the learning time.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scope</th><th>Examples</th><th>Beginner price</th><th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>API &amp; backend fixes (.NET / Laravel)</td><td>1–2 endpoints, CORS/auth, migrations</td><td>$30 – $80</td><td>2–4 hours</td></tr>
+    <tr><td>Full small API / microservice</td><td>JWT, models, validation, Postman</td><td>$120 – $250</td><td>1–2 days</td></tr>
+    <tr><td>Frontend UI (React / Next.js)</td><td>Figma section → Tailwind</td><td>$50 – $120</td><td>3–6 hours</td></tr>
+    <tr><td>Android UI (Jetpack Compose)</td><td>1–2 screens, ViewModel, Material 3</td><td>$60 – $150</td><td>4–8 hours</td></tr>
+    <tr><td>Docker / local devops</td><td>compose for app + DB + Nginx</td><td>$30 – $60</td><td>1–2 hours</td></tr>
+    <tr><td>Live debug (Codementor, later)</td><td>Call to unstick a beginner</td><td>$15 – $25 / 15 min</td><td>15–30 min</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <div class="t">Hourly if they insist</div>
+  Start at <strong>$15–$25/hr</strong>. After 3–5 successful gigs, raise to <strong>$25–$35/hr</strong>. Never drop price without cutting scope: “$80 if we skip custom roles and ship core CRUD only.” Factor 2–5% for Stripe/PayPal/USDC conversion.
+</div>
+<p>Take two or three $30–$50 bug fixes first. The review/PR merge is worth more than the $30.</p>
+
+<h2>13. Why is this not as famous as Upwork — is it legit?</h2>
+<p><strong>Yes. These are real companies and real maintainer payouts.</strong> Opire, Superteam, Algora, Contra, PeoplePerHour, Wellfound, and Hubstaff are not “secret intern scams.” They are smaller because they do not buy Super Bowl ads.</p>
+
+<div class="two">
+  <div class="box">
+    <h4>Upwork / Fiverr model</h4>
+    <ul>
+      <li>General non-technical clients</li>
+      <li>Bidding wars and long proposals</li>
+      <li>HR-style interviews and resumes</li>
+      <li>High platform commission</li>
+      <li>Massive marketing budget</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h4>Bounty / micro-gig model</h4>
+    <ul>
+      <li>Developer-to-developer (or founder-dev)</li>
+      <li>Code-first: PRs, GitHub, live demos</li>
+      <li>Usually no interview</li>
+      <li>Zero-to-low commission for you</li>
+      <li>Quiet, niche, less spam</li>
+    </ul>
+  </div>
+</div>
+<ul>
+  <li><strong>They solve a technical need, not an HR need.</strong> The buyer wants a bug fixed this week, not a two-week interview loop.</li>
+  <li><strong>Payout is tied to code.</strong> Submit → tests/review pass → money releases. Fewer “did you work enough hours?” fights.</li>
+  <li><strong>Different money model.</strong> Superteam is funded to attract builders. Opire/BountyHub charge the funder. Upwork charges both sides and funds ads with that.</li>
+  <li><strong>Advantage for an intern:</strong> a $50 Upwork job gets 50 spam proposals. A GitHub bounty often has 2–3 people who can actually open a clean PR.</li>
+</ul>
+
+<h2>14. Day-1 checklist &amp; scam red flags</h2>
+<div class="keep">
+  <h3>Today</h3>
+  <ul>
+    <li>Create Opire + Superteam Earn + GitHub bounty search bookmarks</li>
+    <li>Find <em>one</em> open issue in Laravel, .NET, or React with an active maintainer</li>
+    <li>Comment to claim it; do not ghost after commenting</li>
+  </ul>
+  <h3>Tomorrow</h3>
+  <ul>
+    <li>Submit or continue that PR with tests</li>
+    <li>Pick one Superteam frontend/integration task and start a live demo</li>
+  </ul>
+  <h3>This week</h3>
+  <ul>
+    <li>Contra profile with 2–3 fixed micro-services and prices from Section 12</li>
+    <li>PeoplePerHour Hourlie + Hubstaff Talent profile at $15–$25/hr</li>
+    <li>Wellfound: 10 contract / part-time applications, stack-specific pitch</li>
+    <li>Ask internship mentors for a junior conversion, referral, or LinkedIn recommendation</li>
+  </ul>
+</div>
+
+<div class="callout red-box">
+  <div class="t">Walk away immediately if they ask for</div>
+  Upfront payment for equipment, test software, or “security clearance.” Crypto deposits before they pay you. Moving to personal Telegram/WhatsApp before there is a platform contract. A site A1 Net Protect (or any antivirus/DNS filter) flags as malware — that is not a freelance board.
+</div>
+
+<p class="small" style="margin-top:16pt;">This guide excludes Upwork and Fiverr on purpose. Toptal, Braintrust, and Arc.dev are listed because they are real high-end networks — they are not intern starting points. Prefer public PRs, Hourlies, Contra packaged services, and Wellfound contracts until you have reviews and a junior title.</p>
+
+</body>
+</html>
